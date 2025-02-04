@@ -39,30 +39,30 @@ test_input = [20, 7, 23, 19, 10, 15, 25, 8, 13]
 print(find_seven_people(test_input))
 
 
-# # 백준 제출 답안
-# # 백준 input은 배열이지 않고 라인마다 자연수가 나뉘어서 주어진다 
-# # output 또한 각 라인마다 자연수가 출력된다
-# """ 
-# input
-# 20
-# 7
-# 23
-# 19
-# 10
-# 15
-# 25
-# 8
-# 13
+# 백준 제출 답안
+# 백준 input은 배열이지 않고 라인마다 자연수가 나뉘어서 주어진다 
+# output 또한 각 라인마다 자연수가 출력된다
+""" 
+input
+20
+7
+23
+19
+10
+15
+25
+8
+13
 
-# output 
-# 7
-# 8
-# 10
-# 13
-# 19
-# 20
-# 23
-# """ 
+output 
+7
+8
+10
+13
+19
+20
+23
+""" 
 
 def find_seven_people_baekjoon():
     import sys
@@ -83,7 +83,6 @@ def find_seven_people_baekjoon():
                 remove_arr.append(arr[i])
                 remove_arr.append(arr[j])
                 break
-        
         
     arr.remove(remove_arr[0])
     arr.remove(remove_arr[1])
