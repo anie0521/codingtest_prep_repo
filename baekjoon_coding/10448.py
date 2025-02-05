@@ -36,25 +36,25 @@ Tn = 1 + 2 + 3 + ... + n = n(n+1)/2
 # K는 꼭 3개의 T의 합이여야한다. 그러나 그 합이 1000 이상이면 안됨.
 
 # 첫번째 시도
-# def eureka(k):
-#     triangles = []
-#     n = 1
+def eureka(k):
+    triangles = []
+    n = 1
 
-#     while (n * (n + 1) // 2) <= 1000:
-#         t = n * (n + 1) // 2
-#         triangles.append(t)
-#         n += 1
+    while (n * (n + 1) // 2) <= 1000:
+        t = n * (n + 1) // 2
+        triangles.append(t)
+        n += 1
 
-#     for i in triangles:
-#         for j in triangles:
-#             for a in triangles:
-#                 if i + j + a == k:
-#                     return 1
-#                 else:
-#                     return 0
+    for i in triangles:
+        for j in triangles:
+            for a in triangles:
+                if i + j + a == k:
+                    return 1
+                else:
+                    return 0
 
 
-# print(eureka(20))
+print(eureka(20))
 
 # 백준
 import sys
