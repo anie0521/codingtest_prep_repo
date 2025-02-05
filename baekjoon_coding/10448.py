@@ -64,7 +64,6 @@ input = sys.stdin.readline
 def is_eureka(k):
     triangles = []
     n = 1
-    res = []
 
     while (n * (n + 1) // 2) <= 1000:
         t = n * (n + 1) // 2
