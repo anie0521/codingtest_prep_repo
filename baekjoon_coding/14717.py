@@ -55,10 +55,10 @@ def cal_win_probability(a, b):
         # print(formatted(diff_res))
         return formatted(diff_res)
 
-# print("test 1: ", cal_win_probability(1,1))
-# print("test 2: ", cal_win_probability(1,2))
-# print("test 3: ", cal_win_probability(1,9))
-# print("test 4: ", cal_win_probability(10,10))
+print("test 1: ", cal_win_probability(1,1))
+print("test 2: ", cal_win_probability(1,2))
+print("test 3: ", cal_win_probability(1,9))
+print("test 4: ", cal_win_probability(10,10))
 
 
 # 백준
