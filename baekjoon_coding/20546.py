@@ -16,11 +16,11 @@
 """
 
 
-# import sys
+import sys
 
-# buying_power = int(sys.stdin.readline())
+buying_power = int(sys.stdin.readline())
 
-# prices_arr = list(map(int, input().split()))
+prices_arr = list(map(int, input().split()))
 
 
 
@@ -73,16 +73,16 @@ def compare_prices(bnp_money, timing_money):
         return 'SAMESAME'
 
 
-test_arr = [10, 20, 23, 34, 55, 30, 22, 19, 12, 45, 23, 44, 34, 38]
-test_arr2 = [20, 20, 33, 98, 15, 6, 4, 1, 1, 1, 2, 3, 6, 14]
+# test_arr = [10, 20, 23, 34, 55, 30, 22, 19, 12, 45, 23, 44, 34, 38]
+# test_arr2 = [20, 20, 33, 98, 15, 6, 4, 1, 1, 1, 2, 3, 6, 14]
 
-print(bnp_investment(test_arr, 100)) # 380
+# print(bnp_investment(test_arr, 100)) # 380
 
-print(bnp_investment(test_arr2, 15)) #14
+# print(bnp_investment(test_arr2, 15)) #14
 
-print(timing_investment(test_arr, 100)) # 195
+# print(timing_investment(test_arr, 100)) # 195
 
-print(timing_investment(test_arr2, 15)) # 36
+# print(timing_investment(test_arr2, 15)) # 36
 
 
-# print(compare_prices(bnp_investment(prices_arr, buying_power), timing_investment(prices_arr, buying_power)))
+print(compare_prices(bnp_investment(prices_arr, buying_power), timing_investment(prices_arr, buying_power)))
