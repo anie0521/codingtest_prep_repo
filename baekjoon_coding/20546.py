@@ -16,55 +16,55 @@
 """
 
 
-import sys
+# import sys
 
-buying_power = int(sys.stdin.readline())
+# buying_power = int(sys.stdin.readline())
 
-stock_arr = list(map(int, input().split()))
+# prices_arr = list(map(int, input().split()))
 
 
 
-def bnp_investment(stocks, money):
+def bnp_investment(prices, money):
     j_stock = 0
     j_money = money
     
-    for i in range(len(stocks)):
-        if stocks[i] <= j_money:
-            j_stock = money // stocks[i]
-            j_money -= stocks[i] * j_stock
+    for i in range(len(prices)):
+        if prices[i] <= j_money:
+            j_stock = money // prices[i]
+            j_money -= prices[i] * j_stock
     
-    j_money += stocks[-1] * j_stock
+    j_money += prices[-1] * j_stock
     
     return j_money
 
 
-def timing_investment(stocks, money):
+def timing_investment(prices, money):
     s_money = money
     s_stock = 0
 
-    for i in range(2, len(stocks) - 1):
+    for i in range(2, len(prices) - 1):
         # 3일 연속 하락이면 매수 -> 4 일차 주식 삼 
-        if stocks[i] <= stocks[i - 1] and stocks[i - 1] <= stocks[i - 2]:
-            if s_money >= stocks[i] and stocks[i] >= stocks[i+1]:  # 주식을 살 수 있으면
-                available = s_money // stocks[i+1] 
+        if prices[i] <= prices[i - 1] and prices[i - 1] <= prices[i - 2]:
+            if s_money >= prices[i] and prices[i] >= prices[i+1]:  # 주식을 살 수 있으면
+                available = s_money // prices[i+1] 
                 s_stock += available 
-                s_money -= available * stocks[i+1]  
+                s_money -= available * prices[i+1]  
 
         # 3일 연속 상승이면 매도 -> 4 일차 주식 매도
-        if stocks[i] > stocks[i - 1] and stocks[i - 1] > stocks[i - 2]:
-            if stocks[i] <= stocks[i+1]:
+        if prices[i] > prices[i - 1] and prices[i - 1] > prices[i - 2]:
+            if prices[i] <= prices[i+1]:
                 if s_stock: 
-                    s_money += s_stock * stocks[i+1] 
+                    s_money += s_stock * prices[i+1] 
                     s_stock = 0  
 
     # 마지막 주식이 남아있을 경우 매도
     if s_stock:
-        s_money += s_stock * stocks[-1]
+        s_money += s_stock * prices[-1]
 
     return s_money
 
 
-def compare_stocks(bnp_money, timing_money):
+def compare_prices(bnp_money, timing_money):
     if bnp_money > timing_money:
         return 'BNP'
     elif bnp_money < timing_money:
@@ -73,16 +73,16 @@ def compare_stocks(bnp_money, timing_money):
         return 'SAMESAME'
 
 
-# test_arr = [10, 20, 23, 34, 55, 30, 22, 19, 12, 45, 23, 44, 34, 38]
-# test_arr2 = [20, 20, 33, 98, 15, 6, 4, 1, 1, 1, 2, 3, 6, 14]
+test_arr = [10, 20, 23, 34, 55, 30, 22, 19, 12, 45, 23, 44, 34, 38]
+test_arr2 = [20, 20, 33, 98, 15, 6, 4, 1, 1, 1, 2, 3, 6, 14]
 
-# print(bnp_investment(test_arr, 100)) # 380
+print(bnp_investment(test_arr, 100)) # 380
 
-# print(bnp_investment(test_arr2, 15)) #14
+print(bnp_investment(test_arr2, 15)) #14
 
-# print(timing_investment(test_arr, 100)) # 195
+print(timing_investment(test_arr, 100)) # 195
 
-# print(timing_investment(test_arr2, 15)) # 36
+print(timing_investment(test_arr2, 15)) # 36
 
 
-print(compare_stocks(bnp_investment(stock_arr, buying_power), timing_investment(stock_arr, buying_power)))
+# print(compare_prices(bnp_investment(prices_arr, buying_power), timing_investment(prices_arr, buying_power)))
