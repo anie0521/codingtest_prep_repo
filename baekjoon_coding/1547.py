@@ -5,9 +5,10 @@
         
 출력 : 공이 있는 컵 번호 (공이 사라져서 컵 밑에 없는 경우에는 -1을 출력한다.)
 """
+import sys
 
 
-nums_round = int(input())
+nums_round = int(sys.stdin.readline())
 
 ball = 1 
 
