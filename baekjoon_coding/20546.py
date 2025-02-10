@@ -33,7 +33,7 @@ def bnp_investment(stocks, money):
             j_stock = money // stocks[i]
             j_money -= stocks[i] * j_stock
     
-    j_money += stocks[13] * j_stock
+    j_money += stocks[-1] * j_stock
     
     return j_money
 
