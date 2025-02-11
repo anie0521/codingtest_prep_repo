@@ -42,20 +42,19 @@ def timing_investment(prices, money):
     s_money = money
     s_stock = 0
 
-    for i in range(2, len(prices) - 1):
+    for i in range(3, len(prices) - 1):
         # 3일 연속 하락이면 매수 -> 4 일차 주식 삼 
-        if prices[i] <= prices[i - 1] and prices[i - 1] <= prices[i - 2]:
-            if s_money >= prices[i] and prices[i] >= prices[i+1]:  # 주식을 살 수 있으면
-                available = s_money // prices[i+1] 
+        if prices[i - 1] <= prices[i - 2] and prices[i - 2] <= prices[i - 3]:
+            if s_money >= prices[i]:  # 주식을 살 수 있으면
+                available = s_money // prices[i] 
                 s_stock += available 
-                s_money -= available * prices[i+1]  
+                s_money -= available * prices[i]  
 
         # 3일 연속 상승이면 매도 -> 4 일차 주식 매도
-        if prices[i] > prices[i - 1] and prices[i - 1] > prices[i - 2]:
-            if prices[i] <= prices[i+1]:
-                if s_stock: 
-                    s_money += s_stock * prices[i+1] 
-                    s_stock = 0  
+        if prices[i - 1] > prices[i - 2] and prices[i - 2] > prices[i - 3]:
+            if s_stock: 
+                s_money += s_stock * prices[i] 
+                s_stock = 0 
 
     # 마지막 주식이 남아있을 경우 매도
     if s_stock:
