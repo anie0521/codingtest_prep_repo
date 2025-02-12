@@ -53,15 +53,17 @@ for idx, num in enumerate(call):
         checked_rows[row] += 1
         checked_cols[col] += 1
 
+        # 가로 빙고 체크
         if checked_rows[row] == 5:
             cnt += 1
             checked_rows[row] = 6
 
+        # 세로 빙고 체크
         if checked_cols[col] == 5:
             cnt += 1
             checked_cols[col] == 6
 
-
+        # 대각선 왼쪽에서 오른쪽 체크
         if row == col:
             checked_diag_left_to_right += 1
 
@@ -69,13 +71,15 @@ for idx, num in enumerate(call):
                 cnt += 1
                 checked_diag_left_to_right = 6
 
+        # 대각선 오른쪽에서 왼쪽 체크
         if row + col == 4:
             checked_diag_right_to_left += 1
 
             if checked_diag_right_to_left == 5:
                 cnt += 1
                 checked_diag_right_to_left = 6
-        
+    
+    # 빙고가 3개 이상인 경우 인덱스(횟수) + 1 출력
     if cnt >= 3:
         print(idx + 1)
         break  
