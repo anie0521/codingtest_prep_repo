@@ -8,14 +8,14 @@ nums = list(map(int, sys.stdin.readline().split()))
 add, sub, mul, div = map(int, input().split())
 
 max_res = -float('inf')
-# min_res = float('inf')
+min_res = float('inf')
 
 
 def backtracking(idx, cur_num, add, sub, mul, div):
-    global max_res
+    global max_res, min_res
     if idx == N - 1:
         max_res = max(max_res, cur_num)
-        # min_res = min(min_res, cur_num)
+        min_res = min(min_res, cur_num)
 
     if add > 0:
         backtracking(idx + 1, cur_num + nums[idx + 1], add - 1, sub, mul, div)
@@ -36,3 +36,4 @@ def backtracking(idx, cur_num, add, sub, mul, div):
 backtracking(0, nums[0], add, sub, mul, div)
 
 print(max_res)
+print(min_res)
