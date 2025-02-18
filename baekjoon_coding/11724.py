@@ -39,7 +39,7 @@ def bfs(node):
 cnt = 0
 for node in range(1, n + 1):
     if node not in visited:
-        # dfs(node)
+        dfs(node)
         bfs(node)
         cnt += 1
 
