@@ -7,7 +7,7 @@ n, m = map(int, sys.stdin.readline().split())
 graph = [[] for _ in range(n+1)]
 
 # 방문한 노드를 저장하는 변수
-visited = []
+visited = set([])
 
 # 입력값 갖고 무방향 그래프 만들기
 for _ in range(m):
@@ -17,7 +17,7 @@ for _ in range(m):
 
 # dfs
 def dfs(node):
-    visited.append(node)
+    visited.add(node)
     for adj in graph[node]:
         if adj not in visited:
             dfs(adj)
