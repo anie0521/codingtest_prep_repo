@@ -1,4 +1,5 @@
 import sys
+from collections import deque
 
 # 정점의 개수, 간선의 개수
 n, m = map(int, sys.stdin.readline().split())
@@ -22,10 +23,24 @@ def dfs(node):
         if adj not in visited:
             dfs(adj)
 
+def bfs(node):
+    visited.add(node)
+    q = deque([node])
+
+    while q:
+        cur_node = q.popleft()
+
+        for adj in graph[cur_node]:
+            if adj not in visited:
+                q.append(adj)
+                visited.add(adj)
+
+
 cnt = 0
 for node in range(1, n + 1):
     if node not in visited:
-        dfs(node)
+        # dfs(node)
+        bfs(node)
         cnt += 1
 
 
