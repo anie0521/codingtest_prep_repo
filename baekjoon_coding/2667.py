@@ -8,6 +8,7 @@
 출력값 : 첫 번째 줄에는 총 단지수를 출력하시오. 그리고 각 단지내 집의 수를 오름차순으로 정렬하여 한 줄에 하나씩 출력하시오.
 """
 
+from collections import deque
 import sys
 sys.setrecursionlimit(10**8)
 
@@ -32,6 +33,24 @@ def dfs(x, y):
     
     return size
 
+def bfs(x, y):
+    q = deque([(x, y)])
+
+    maps[x][y] = 0
+    size = 1
+
+    while q:
+        cx, cy = q.popleft()
+
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = cx + dx, cy + dy
+
+            if 0 <= nx < n and 0 <= ny < n and maps[nx][ny] == 1:
+                maps[nx][ny] = 0
+                q.append((nx, ny))
+                size += 1
+    
+    return size
 
 
 apt_sizes = []
@@ -40,6 +59,7 @@ for i in range(n):
     for j in range(n):
         if maps[i][j] == 1:
             apt_size = dfs(i, j)
+            apt_size = bfs(i, j)
             apt_sizes.append(apt_size)
 
 
