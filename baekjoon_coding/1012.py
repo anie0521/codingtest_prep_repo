@@ -71,7 +71,7 @@ for _ in range(t):
     grid = [[0] * m for _ in range(n)]
     for y, x in cabbages:
         grid[x][y] = 1
-    # print(count_earthworm_dfs(grid))
+    print(count_earthworm_dfs(grid))
     print(count_earthworm_bfs(grid))
 
 
