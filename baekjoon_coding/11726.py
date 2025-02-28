@@ -2,7 +2,9 @@ import sys
 
 def ways_of_tiling(n):
     if n < 1 or n > 1000:
-        return 
+        return 0
+    if n == 1:
+        return 1
     
     dp = [0] * (n+1)
 
@@ -10,7 +12,7 @@ def ways_of_tiling(n):
     dp[2] = 2
 
     for i in range(3, n+1):
-        dp[i] = (dp[i-1] + dp[i-2]) % 1007
+        dp[i] = (dp[i-1] + dp[i-2]) % 10007
 
     return dp[n]
 
